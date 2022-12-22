@@ -1,9 +1,9 @@
-import Head from 'next/head'
+import Head from "next/head"
 import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import { Menu } from "@headlessui/react"
+import { Bars3Icon, StarIcon } from "@heroicons/react/20/solid"
+import { BellAlertIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -14,110 +14,348 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+
+      <header className="sticky top-0 z-30 md:relative">
+
+        <div className="py-3 hidden bg-header md:block">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="flex justify-between">
+              <div className="flex flex-row space-x-3 justify-center">
+                <Profile />
+                <div>
+                  <div class="group flex items-center ">
+                    <img class="shrink-0 h-7 w-7 rounded-full" src="https://images.unsplash.com/photo-1669489277853-f80067be8d83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDczfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                    <div class="mr-3">
+                      <p class="text-sm group-hover:text-default text-md font-bold">محمد عبدالرحمن</p>
+                    </div>
+                  </div>
+                </div>
+                <button>
+                  
+                  <BellAlertIcon
+                    className="transition duration-300 h-6 w-6 rounded-lg bg-second bg-opacity-10 text-second hover:text-yellow-600"
+                    aria-hidden="true"
+                  />
+
+                </button>
+              </div>
+              <div className="pt-1 font-extrabold ">Logo</div>
+            </div>
           </div>
         </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
+        <div className=" bg-body pb-4 md:px-6 md:mt-5 shadow-lg md:shadow-none">
+          <img className="object-cover h-28 sm:h-38 w-screen md:rounded-3xl" src="https://images.unsplash.com/photo-1664648576579-3768db2102fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Hero Image" />
+          
+          <div className="relative shadow-sm mx-8 -mt-5 md:-mt-6 md:w-1/2 md:mx-auto">
+            <input
+              type="text"
+              name="search"
+              id="search"
+              className="block w-full text-sm md:h-12 pr-10 shadow-lg border-none rounded-full"
+              placeholder="ما الخدمة التى ستحتاجها"
             />
+            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+            </div>
           </div>
+
+          <ul role="list" className="flex md:justify-center snap-x md:flex-wrap overflow-auto mx-6 md:mx-12 my-5">
+
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+              <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+                <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+                <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+                <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+                <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+                <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+
+            <li className="snap-start px-6 pt-3 space-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
+                <line x1="13" y1="7" x2="13" y2="7.01" />
+                <line x1="17" y1="7" x2="17" y2="7.01" />
+                <line x1="17" y1="11" x2="17" y2="11.01" />
+                <line x1="17" y1="15" x2="17" y2="15.01" />
+              </svg>                
+                <div className="text-xs text-center font-medium lg:text-sm">
+                  <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                </div>
+            </li>
+
+          </ul>
+
         </div>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+      </header>
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
+      <main className="mx-auto max-w-6xl">
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+        <div className="">
+          <Cards />
         </div>
+
       </main>
     </>
+  )
+}
+
+
+{/* <Image
+src="https://images.unsplash.com/photo-1671523435843-e3cd426c24e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8YWV1NnJMLWo2ZXd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+alt="Picture of the author"
+width="{500}"
+height={500}
+/> */}
+
+
+
+function Profile() {
+  return (
+    <div className="pl-3 pt-1">
+      <Menu as="div" className="relative inline-block">
+        <div>
+          <Menu.Button className="inline-flex w-full justify-center rounded-mdpy-1 font-bold text-slate-800">
+            <Bars3Icon
+              className="h-5 w-5"
+              aria-hidden="true"
+            />
+          </Menu.Button>
+        </div>
+        <Menu.Items className="absolute right-0 mt-2 w-48 bg-body rounded-md shadow-lg">
+          <div className="px-1 py-1">
+            <Menu.Item>
+                <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                  حسابى
+                </button>
+            </Menu.Item>
+            <Menu.Item>
+                <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                  الطلبات
+                </button>
+            </Menu.Item>
+            <Menu.Item>
+                <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                  خدماتى
+                </button>
+            </Menu.Item>
+            <Menu.Item>
+                <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                  الرصيد
+                </button>
+            </Menu.Item>
+            <Menu.Item>
+                <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                  الإشعارات
+                </button>
+            </Menu.Item>
+          </div>
+        </Menu.Items>
+      </Menu>
+    </div>
+  )
+}
+
+
+
+
+
+function Cards() {
+
+  const people = [
+    {
+      title: 'محمد أحمد',
+      section: 'لوجو',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'عبدالرحمن على',
+      section: 'تصميم مواقع',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'محمد أحمد',
+      section: 'لوجو',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+
+    {
+      title: 'طارق مغازى',
+      section: 'كتابة وأبحاث',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'فرناردو ادوارد',
+      section: 'محاماه',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'طارق مغازى',
+      section: 'كتابة وأبحاث',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+
+    // More people...
+  ]
+  
+  return (
+    <div className="">
+      <div className=" m-3 md:m-5">
+        <div className="space-y-12">
+          <ul
+            role="list"
+            className="space-y-12 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-4 lg:gap-x-4"
+          >
+            {people.map((person) => (
+              <li key={person.title}>
+                <div className="space-y-1">
+                  <div className="aspect-w-3 aspect-h-2">
+                    <img className="object-cover shadow-lg rounded-t-lg" src={person.imageUrl} alt="" />
+                  </div>
+
+                  <div className="space-x-2 flex justify-between">
+                    {/* <div class="group flex items-center">
+                      <img class="shrink-0 h-9 w-9 rounded-full" src="https://images.unsplash.com/photo-1669489277853-f80067be8d83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDczfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                      <div class="mr-3">
+                        <p class="text-sm group-hover:text-default text-md font-bold">{person.title}</p>
+                        <p class="text-sm font-medium text-slate-500 group-hover:text-slate-300">{person.section}</p>
+                      </div>
+                    </div> */}
+                    <div class="group items-center">
+                        <div class="text-sm group-hover:text-default text-md font-bold flex">
+                          <img class="shrink-0 h-9 w-9 rounded-full" src="https://images.unsplash.com/photo-1669489277853-f80067be8d83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDczfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                          <div class="text-md font-bold text-slate-500 group-hover:text-slate-300 pt-2 pr-2">
+                            {person.title}
+                          </div>
+                        </div>
+                        <div class="group-hover:text-default text-xs text-slate-500 pr-11 -mt-1">
+                          {person.section}
+                        </div>
+                        <div class="group-hover:text-default text-sm pr-11 mt-1">
+                          {person.sales} مبيعات
+                        </div>
+                    </div>
+
+
+                    <div class="group items-center space-y-4 mt-1">
+                        <div class="flex text-md group-hover:text-default bg-slate-900 text-white px-2 rounded-lg">
+                          <div className="">{person.rate}</div>
+                          <StarIcon 
+                            className="h-5 w-5 pt-1 mr-1"
+                            aria-hidden="true"/>
+                        </div>
+                        <div class="text-lg group-hover:text-default px-2">
+                          {person.price} $
+                        </div> 
+                    </div>
+
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   )
 }
