@@ -44,7 +44,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className=" bg-body pb-4 md:px-6 md:mt-5 shadow-lg md:shadow-none">
+        <div className="mx-auto max-w-6xl bg-body pb-4 md:px-6 md:mt-5 shadow-lg md:shadow-none">
           <img className="object-cover h-28 sm:h-38 w-screen md:rounded-3xl" src="https://images.unsplash.com/photo-1664648576579-3768db2102fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Hero Image" />
           
           <div className="relative shadow-sm mx-8 -mt-5 md:-mt-6 md:w-1/2 md:mx-auto">
