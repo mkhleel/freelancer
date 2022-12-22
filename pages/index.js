@@ -58,10 +58,11 @@ export default function Home() {
               <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </div>
           </div>
+          
           {/* Sections Icons */}
-          <ul role="list" className="flex md:justify-center snap-x md:flex-wrap overflow-auto mx-6 md:mx-12 my-5">
-            {Array(8).fill().map((arr) => (
-                <li className="snap-start px-6 pt-3">
+          <ul role="list" className="flex md:justify-center snap-x md:flex-wrap overflow-auto mx-6 md:mx-12 md:my-3">
+            {Array(8).fill().map((arr, index) => (
+                <li key={index} className="snap-start px-6 pt-3">
                   <a href="#" className="space-y-2">
                     <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
