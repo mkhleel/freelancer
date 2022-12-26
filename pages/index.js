@@ -1,10 +1,68 @@
 import Head from "next/head"
-import { BellAlertIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline"
-import Cards from "../components/Cards"
-import Profile from "../components/Profile"
+import Layout from "../components/layout"
+import { StarIcon } from "@heroicons/react/20/solid"
+import Link from "next/link"
 
 
 export default function Home() {
+  const people = [
+    {
+      title: 'محمد أحمد',
+      section: 'لوجو',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'عبدالرحمن على',
+      section: 'تصميم مواقع',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'طارق أحمد',
+      section: 'لوجو',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+
+    {
+      title: 'أحمد مغازى',
+      section: 'كتابة وأبحاث',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'فرناردو ادوارد',
+      section: 'محاماه',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+    {
+      title: 'طارق مغازى',
+      section: 'كتابة وأبحاث',
+      imageUrl:
+        'https://images.unsplash.com/photo-1671602710982-0459d6b6b607?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      sales: 12,
+      price: 120,
+      rate: 3.8,
+    },
+  ]
+
   return (
     <>
       <Head>
@@ -14,84 +72,57 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="sticky top-0 z-30 md:relative">
-        <div className="py-3 hidden bg-header md:block">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="flex justify-between">
-              <div className="flex flex-row space-x-3 justify-center">
-                <Profile />
-
-                <div>
-                  <a href="#" class="group flex items-center ">
-                    <img class="shrink-0 h-7 w-7 rounded-full" src="https://images.unsplash.com/photo-1669489277853-f80067be8d83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDczfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                    <div class="mr-3">
-                      <p class="text-sm group-hover:text-default text-md font-bold">محمد عبدالرحمن</p>
-                    </div>
-                  </a>
-                </div>
-
-                <button>
-                  <BellAlertIcon
-                    className="transition duration-300 h-6 w-6 rounded-lg bg-second bg-opacity-10 text-second hover:text-yellow-600"
-                    aria-hidden="true"
-                  />
-                </button>
-              </div>
-              <div className="pt-1 font-extrabold ">Logo</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Hero and search */}
-        <div className="mx-auto max-w-6xl bg-body pb-4 md:px-6 md:mt-5 shadow-lg md:shadow-none">
-          <img className="object-cover h-28 sm:h-38 w-screen md:rounded-3xl" src="https://images.unsplash.com/photo-1664648576579-3768db2102fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Hero Image" />
-          
-          <div className="relative shadow-sm mx-8 -mt-5 md:-mt-6 md:w-1/2 md:mx-auto">
-            <input
-              type="text"
-              name="search"
-              id="search"
-              className="block w-full text-sm md:h-12 pr-10 shadow-lg border-none rounded-full"
-              placeholder="ما الخدمة التى ستحتاجها"
-            />
-            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </div>
-          </div>
-          
-          {/* Sections Icons */}
-          <ul role="list" className="flex md:justify-center snap-x md:flex-wrap overflow-auto mx-6 md:mx-12 md:my-3">
-            {Array(8).fill().map((arr, index) => (
-                <li key={index} className="snap-start px-6 pt-3">
-                  <a href="#" className="space-y-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8" />
-                      <line x1="13" y1="7" x2="13" y2="7.01" />
-                      <line x1="17" y1="7" x2="17" y2="7.01" />
-                      <line x1="17" y1="11" x2="17" y2="11.01" />
-                      <line x1="17" y1="15" x2="17" y2="15.01" />
-                    </svg>
-                    <div className="text-xs text-center font-medium lg:text-sm">
-                        <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
-                    </div>
-                  </a>
-                </li>
-            ))}
-          </ul>
-
-        </div>
-
-
-      </header>
-
-      <main className="mx-auto max-w-6xl">
-
+      <Layout>
         <div className="">
-          <Cards />
-        </div>
+        <div className=" m-3 md:m-5">
+          <div className="space-y-12">
+            <ul
+              role="list"
+              className="space-y-12 sm:grid sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-4 lg:gap-x-4"
+            >
+              {people.map((person) => (
+                <li key={person.title}>
+                  <Link href="/item" className="space-y-1">
+                    <div className="aspect-w-3 aspect-h-2">
+                      <img className="object-cover shadow-lg rounded-t-lg hover:grayscale" src={person.imageUrl} alt="" />
+                    </div>
 
-      </main>
+                    <div className="flex justify-between">
+                      <div className="group items-center">
+                          <div className="text-sm text-md font-bold flex">
+                            <img className="shrink-0 h-9 w-9 rounded-full" src="https://images.unsplash.com/photo-1669489277853-f80067be8d83?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDczfHRvd0paRnNrcEdnfHxlbnwwfHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                            <div className="text-md font-extrabold text-slate-500 group-hover:text-slate-300 pt-2 pr-2">
+                              {person.title}
+                            </div>
+                          </div>
+                          <div className=" text-xs text-slate-500 pr-11 -mt-1">
+                            {person.section}
+                          </div>
+                          <div className=" text-sm pr-11 mt-1">
+                            {person.sales} مبيعات
+                          </div>
+                      </div>
+
+                      <div className="group text-left space-y-4 mt-1">
+                          <div className="flex text-md bg-slate-900 text-white px-2 rounded-md">
+                            <div className="">{person.rate}</div>
+                            <StarIcon 
+                              className="h-5 pt-1 mr-1"/>
+                          </div>
+                          <div className="text-lg font-extrabold">
+                            {person.price} $
+                          </div> 
+                      </div>
+
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        </div>
+      </Layout>
     </>
   )
 }

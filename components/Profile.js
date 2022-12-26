@@ -1,6 +1,7 @@
 
 import { Menu } from "@headlessui/react"
 import { Bars3Icon } from "@heroicons/react/20/solid"
+import Link from "next/link";
 
 
 
@@ -9,7 +10,7 @@ const Profile = () => {
         <div className="pl-3 pt-1">
           <Menu as="div" className="relative inline-block">
             <div>
-              <Menu.Button className="inline-flex w-full justify-center rounded-mdpy-1 font-bold text-slate-800">
+              <Menu.Button  className="inline-flex w-full justify-center rounded-mdpy-1 font-bold text-slate-800">
                 <Bars3Icon
                   className="h-5 w-5"
                   aria-hidden="true"
@@ -19,29 +20,29 @@ const Profile = () => {
             <Menu.Items className="absolute right-0 mt-2 w-48 bg-body rounded-md shadow-lg">
               <div className="px-1 py-1">
                 <Menu.Item>
-                    <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                    <Link href={'/profile'} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
                       حسابى
-                    </button>
+                    </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                    <Link href={'/orders'} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
                       الطلبات
-                    </button>
+                    </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                    <Link href={'/services'} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
                       خدماتى
-                    </button>
+                    </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                    <Link href={'/chat'} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
                       الرصيد
-                    </button>
+                    </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <button className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                    <Link href={'/chat'} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
                       الإشعارات
-                    </button>
+                    </Link>
                 </Menu.Item>
               </div>
             </Menu.Items>
