@@ -27,7 +27,13 @@ const Navbar = () => {
                         />
                     </button>
                     </div>
-                    <div className="pt-1 font-extrabold ">Logo</div>
+                    <div className="font-extrabold h-7">
+                        <img
+                            className="h-7"
+                            src="https://img.logoipsum.com/221.svg"
+                            alt="asd"
+                        />
+                    </div>
                 </div>
                 </div>
             </div>
