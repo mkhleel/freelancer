@@ -8,7 +8,7 @@ export default function Breadcrumb() {
     const router = useRouter()
 
     const handleBack = () => {
-      router.back()
+        router.push('/')
     }
     
     const pages = [

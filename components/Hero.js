@@ -1,8 +1,11 @@
 
-import { MagnifyingGlassIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline"
+import { MagnifyingGlassIcon, ComputerDesktopIcon, CubeIcon } from "@heroicons/react/24/outline"
+import Image from "next/image"
+import Link from "next/link"
+import axios from '../lib/axios'
 
 
-export default function Hero({ children }) {
+export default function Hero({ categories }) {
 
     return (
         <div className="mx-auto max-w-6xl bg-body pb-4 md:px-6 md:mt-5 shadow-lg md:shadow-none">
@@ -23,19 +26,27 @@ export default function Hero({ children }) {
         
         {/* Sections Icons */}
         <ul role="list" className="flex md:justify-center snap-x md:flex-wrap overflow-auto mx-6 md:mx-12 md:my-3">
-        {Array(8).fill().map((arr, index) => (
+        {categories.map((category, index) => (
             <li key={index} className="snap-start px-6 pt-3">
-                <a href="#" className="space-y-2">  
-                <ComputerDesktopIcon className="mx-auto w-5 lg:w-5 lg:h-5 text-gray-500" />
+                <Link href="#" className="space-y-2">  
+                {category.icon ? (
+                    <Image src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${category.icon}`}
+                        alt=""
+                        width={24}
+                        height={24}
+                        className="mx-auto"
+                    />
+                ) : (
+                <CubeIcon className="mx-auto h-7 text-gray-500" />
+                )}
                 <div className="text-xs text-center font-medium lg:text-sm">
-                    <h3 className=" text-gray-500 truncate ">الأكثر مبيعا</h3>
+                    <h3 className=" text-gray-500 truncate ">{category.title}</h3>
                 </div>
-                </a>
+                </Link>
             </li>
         ))}
         </ul>
 
     </div>
-)
-}
-  
+)}
+

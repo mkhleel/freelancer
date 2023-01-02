@@ -3,9 +3,12 @@ import Layout from "../components/layout"
 import { StarIcon } from "@heroicons/react/20/solid"
 import Link from "next/link"
 import { Alert, Carousel } from "flowbite-react";
+import { useAuth } from "../lib/useAuth";
 
 
 export default function Profile() {
+    const { user } = useAuth({ middleware: 'auth' })
+
     return (
         <>
             <Layout hero={false}>

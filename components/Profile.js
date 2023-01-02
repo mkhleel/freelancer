@@ -2,10 +2,13 @@
 import { Menu } from "@headlessui/react"
 import { Bars3Icon } from "@heroicons/react/20/solid"
 import Link from "next/link";
+import { useAuth } from "../lib/useAuth";
 
 
 
 const Profile = () => {
+  const { logout } = useAuth()
+
     return (
         <div className="pl-3 pt-1">
           <Menu as="div" className="relative inline-block">
@@ -43,6 +46,11 @@ const Profile = () => {
                     <Link href={'/chat'} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
                       الإشعارات
                     </Link>
+                </Menu.Item>
+                <Menu.Item>
+                    <a onClick={logout} className="group flex w-full items-center rounded-md p-3 font-bold text-sm transition duration-300 hover:bg-header">
+                      تسجيل خروج
+                    </a>
                 </Menu.Item>
               </div>
             </Menu.Items>

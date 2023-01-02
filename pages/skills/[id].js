@@ -1,15 +1,15 @@
 import Head from "next/head"
-import Layout from "../components/layout"
-import { StarIcon } from "@heroicons/react/20/solid"
-import Link from "next/link"
-import { Alert, Carousel } from "flowbite-react";
+import Layout from "../../components/layout"
+import { Carousel } from "flowbite-react";
+import axios from "../../lib/axios";
 
 
-export default function Item() {
+export default function Skill({skill}) {
+
   return (
     <>
       <Head>
-        <title>Item</title>
+        <title>{skill.title}</title>
       </Head>
 
       <Layout hero={false}>
@@ -47,21 +47,14 @@ export default function Item() {
             <div className="md:flex md:justify-between m-8">
 
                 <div className="md:grow prose leading-5 my-2">
-                    <h4>تصميم هوية بصرية كاملة</h4>
+                    <h4>{skill.title}</h4>
                     <h5 className="font-bold md:text-sm">
                         تفاصيل الخدمة
                          <span className="text-xs text-gray-400 mr-2">(سيتم تصميم نموذج واحد عن كل من )</span>
                     </h5> 
-                    <ul className="list-disc list-outside mr-4 font-bold md:text-sm">
-                        <li>شعار</li>
-                        <li>بروشور</li>
-                        <li>فلاير</li>
-                        <li>السوشيال ميديا</li>
-                        <li>بروشور</li>
-                        <li>فلاير</li>
-                        <li>السوشيال ميديا</li>
-                        <li>فاتورة مبيعات / سند قبض</li>
-                    </ul>
+                    <div className="prose">
+                        {skill.body}
+                    </div>
                     <h5 className="font-bold md:text-sm">
                         موعد التسليم
                          <span className="text-xs text-gray-400 mr-2">(سيتم تسليم العمل لمدة أقصاها )</span>
@@ -83,3 +76,24 @@ export default function Item() {
 }
 
 
+export async function getStaticPaths() {
+  const response = await axios.get('/api/skills');
+
+  return {
+      fallback: false,
+      paths: response.data.data.map(skill => ({
+          params: {id: skill.id.toString()}
+      }))
+  };
+}
+
+export async function getStaticProps({params}) {
+  const response = await axios.get(`/api/skills/${params.id}`);
+
+  return {
+      props: {
+          skill: response.data.data
+      },
+      revalidate: 10800
+  }
+}
